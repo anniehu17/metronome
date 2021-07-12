@@ -5,6 +5,7 @@ var delta = 0;
 var curTime = 0.0;
 
 //i am not big tall                                     
+//i am big short                                     
 
 // Load up dots on pageload
 $("document").ready(function() {
