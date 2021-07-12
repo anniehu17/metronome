@@ -2,17 +2,13 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context = new AudioContext();
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
-var curTime = 0.0;
-
-//i am not big tall                                     
-//i am big short                                     
+var curTime = 0.0;                                 
 
 // Load up dots on pageload
 $("document").ready(function() {
 $(".ts-top").trigger("change");
 $("header").fitText(1, { maxFontSize: "46px" });
 });
-
 
 /*
 Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
