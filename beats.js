@@ -4,8 +4,7 @@ var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
 var curTime = 0.0;
 
-//i am big tall
-//Peppa? sadddge:M
+//i am big tall                                     
 
 // Load up dots on pageload
 $("document").ready(function() {
