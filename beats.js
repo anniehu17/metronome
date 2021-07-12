@@ -131,13 +131,13 @@ if($(this).data("what") === "pause")
 }
 else {
   // ====== Play ====== //
-
+  
 if( $("#timer-check").is(":checked") )
  {
    counting = true;
    countDown();
  }
-
+  
   curTime = context.currentTime;
   noteCount = parseInt($(".ts-top").val(), 10);
   schedule();
