@@ -5,7 +5,7 @@ var delta = 0;
 var curTime = 0.0;
 
 //i am big tall
-//Peppa? sadge:M
+//Peppa? sadddge:M
 
 // Load up dots on pageload
 $("document").ready(function() {
