@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 @import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
 
-body {
-  background: lighten(#F2F0D9, 5%);
-  font-family: 'Open Sans', sans-serif;
+body { 
+  background: lighten(#F2F0D9, 5%); 
+  font-family: 'Open Sans', sans-serif; 
 }
 
 input[type="range"] {
@@ -36,7 +36,7 @@ input[type="range"] {
     top: 4px;
     background: #FFF;
     cursor: pointer;
-
+  
     &:before {
       content: "";
       display: inline-block;
@@ -93,7 +93,7 @@ header {
   position: relative;
   margin: 40px auto;
   background: lighten(#222, 5%);
-
+  
   .options-btn {
     color: #FFF;
     font-size: 22px;
@@ -103,12 +103,12 @@ header {
     transform: rotateZ(0deg);
     cursor: pointer;
     transition: transform 0.3s;
-
+    
     &:hover {
       transform: rotateZ(60deg);
     }
   }
-
+  
   .options-active {
     max-height: 1000px !important;
     padding: 15px;
@@ -123,7 +123,7 @@ header {
     position: absolute;
     top: 50px;
     right: 15px;
-
+    
     .up {
       color: #FFF;
       font-size: 22px;
@@ -133,19 +133,19 @@ header {
       z-index: 500;
       transform: rotateZ(180deg);
     }
-
+    
     label {
       display: block;
       margin-top: 10px;
     }
   }
-
+  
   .counter {
     width: 100%;
     padding-bottom: 10px;
     background: lighten(#333, 5%);
     text-align: center;
-
+    
     .dot {
       width: 15px;
       height: 15px;
@@ -158,29 +158,29 @@ header {
     }
     .active { background: lighten(#44B8FF, 5%); }
   }
-
+  
   .controls {
     color: #FFF;
     padding: 20px;
     text-align: center;
-
+    
     label {
       display: block;
       margin-bottom: 18px;
-
+      
       span {
         background: #FFF;
         color: #222;
         padding: 5px;
-
-        i {
-          cursor: pointer;
-          transition: color 0.2s;
+        
+        i { 
+          cursor: pointer; 
+          transition: color 0.2s; 
         }
         i:hover { color: #FA6900; }
       }
     }
-
+    
     input {
       width: 30px;
       border: 0px solid;
@@ -188,12 +188,12 @@ header {
       text-align: center;
       padding: 4px;
     }
-
+    
     select {
       border: 0px;
       color: #222;
     }
-
+    
     .play-btn {
       width: 45%;
       background: #D6E26D;
@@ -202,10 +202,10 @@ header {
       padding: 12px;
       color: darken(#D6E26D, 50%);
       transition: background 0.3s;
-
+      
       &:hover { background: lighten(#D6E26D, 15%); }
     }
-
+    
     .tap-btn {
       width: 45%;
       background: #888;
@@ -214,7 +214,7 @@ header {
       padding: 12px;
       color: lighten(#888, 45%);
       transition: background 0.3s;
-
+      
       &:hover { background: lighten(#888, 5%); }
     }
   }
