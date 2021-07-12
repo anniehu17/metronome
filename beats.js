@@ -32,20 +32,12 @@ noteCount++;
 
 /* Play note on a delayed interval of t */
 function playNote(t) {
-    var note = context.createOscillator();
+    var note = new Audio("block.wav");
 
     if(noteCount == parseInt($(".ts-top").val(), 10) )
       noteCount = 0;
 
-    if( $(".counter .dot").eq(noteCount).hasClass("active") )
-      note.frequency.value = accentPitch;
-    else
-      note.frequency.value = offBeatPitch;
-
-    note.connect(context.destination);
-
-    note.start(t);
-    note.stop(t + 0.05);
+    note.play();
 
     $(".counter .dot").attr("style", "");
 
