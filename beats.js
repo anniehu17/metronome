@@ -49,7 +49,7 @@ function playNote(t) {
 function countDown() {
   var t = $(".timer");
 
-  if( parseInt(t.val(), 10) > 0 && counting === true)
+  if( counting === true && parseInt(t.val(), 10) > 0)
   {
       t.val( parseInt(t.val(), 10) - 1 );
       window.setTimeout(countDown, 1000);
@@ -111,7 +111,6 @@ $(".ts-top, .ts-bottom").on("change", function() {
     _counter.append( temp );
   }
 });
-
 
 /* Play and stop button */
 $(".play-btn").click(function() {
