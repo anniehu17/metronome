@@ -1,11 +1,12 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var context = new AudioContext();
+var context;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
 var curTime = 0.0;
 
 // Load up dots on pageload
 $("document").ready(function() {
+  context = new AudioContext();
 $(".ts-top").trigger("change");
 });
 
