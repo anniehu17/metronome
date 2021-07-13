@@ -2,13 +2,14 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context = new AudioContext();
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
-var curTime = 0.0;                                 
+var curTime = 0.0;
 
 // Load up dots on pageload
 $("document").ready(function() {
 $(".ts-top").trigger("change");
 $("header").fitText(1, { maxFontSize: "46px" });
 });
+
 
 /*
 Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
@@ -28,15 +29,15 @@ noteCount++;
 
 /* Play note on a delayed interval of t */
 function playNote(t) {
-    const audioCtx = new AudioContext();
-    var note = new Audio("block.wav");
-    const source = audioCtx.createMediaElementSource(note);
-    source.connect(audioCtx.destination);
+  const audioCtx = new AudioContext();
+  var note = new Audio("block.wav");
+  const source = audioCtx.createMediaElementSource(note);
+  source.connect(audioCtx.destination);
 
-    if(noteCount == parseInt($(".ts-top").val(), 10) )
-      noteCount = 0;
+  if(noteCount == parseInt($(".ts-top").val(), 10) )
+    noteCount = 0;
 
-    note.play();
+  note.play();
 
     $(".counter .dot").attr("style", "");
 
@@ -56,7 +57,6 @@ function countDown() {
   }
   else
   {
-    $(".play-btn").click();
     t.val(60);
   }
 }
@@ -130,7 +130,6 @@ if( $("#timer-check").is(":checked") )
    counting = true;
    countDown();
  }
-  
   curTime = context.currentTime;
   noteCount = parseInt($(".ts-top").val(), 10);
   schedule();
