@@ -28,7 +28,10 @@ noteCount++;
 
 /* Play note on a delayed interval of t */
 function playNote(t) {
+    const audioCtx = new AudioContext();
     var note = new Audio("block.wav");
+    const source = audioCtx.createMediaElementSource(note);
+    source.connect(audioCtx.destination);
 
     if(noteCount == parseInt($(".ts-top").val(), 10) )
       noteCount = 0;
