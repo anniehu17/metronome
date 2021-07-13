@@ -49,7 +49,7 @@ function playNote(t) {
 function countDown() {
   var t = $(".timer");
 
-  if( counting === true && parseInt(t.val(), 10) > 0)
+  if( parseInt(t.val(), 10) > 0 && counting === true)
   {
       t.val( parseInt(t.val(), 10) - 1 );
       window.setTimeout(countDown, 1000);
