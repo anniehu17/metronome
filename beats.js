@@ -7,7 +7,6 @@ var curTime = 0.0;
 // Load up dots on pageload
 $("document").ready(function() {
 $(".ts-top").trigger("change");
-$("header").fitText(1, { maxFontSize: "46px" });
 });
 
 
