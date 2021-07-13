@@ -1,12 +1,12 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context;
+var already_made_context = false;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
 var curTime = 0.0;
 
 // Load up dots on pageload
 $("document").ready(function() {
-  context = new AudioContext();
 $(".ts-top").trigger("change");
 });
 
@@ -114,6 +114,10 @@ $(".ts-top, .ts-bottom").on("change", function() {
 
 /* Play and stop button */
 $(".play-btn").click(function() {
+  if (already_made_context == false) {
+    context = new AudioContext();
+    already_made_context = true;
+  }
 if($(this).data("what") === "pause")
 {
   // ====== Pause ====== //
