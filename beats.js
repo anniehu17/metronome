@@ -1,6 +1,6 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context;
-var already_made_context = false;
+var note_buffer;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
 var curTime = 0.0;
@@ -8,6 +8,8 @@ var curTime = 0.0;
 // Load up dots on pageload
 $("document").ready(function() {
 $(".ts-top").trigger("change");
+context = new AudioContext();
+getSound();
 });
 
 
@@ -27,17 +29,36 @@ curTime += 60.0 / parseInt($(".bpm-input").val(), 10);
 noteCount++;
 }
 
+function getSound() {
+  var request = new XMLHttpRequest();
+  request.open('GET', 'block.wav', true);
+  request.responseType = 'arraybuffer';
+
+  request.onerror = function() {
+    alert("error loading :(");
+  };
+
+  // Decode asynchronously
+  request.onload = function() {
+    context.decodeAudioData(request.response, function(buffer) {
+      note_buffer = buffer;
+    }, onerror);
+  }
+  request.send();
+}
+
 /* Play note on a delayed interval of t */
 function playNote(t) {
   const audioCtx = new AudioContext();
-  var note = new Audio("block.wav");
-  const source = audioCtx.createMediaElementSource(note);
-  source.connect(audioCtx.destination);
+  var note = audioCtx.createBufferSource();
+  note.buffer = note_buffer;
 
   if(noteCount == parseInt($(".ts-top").val(), 10) )
     noteCount = 0;
 
-  note.play();
+  note.connect(audioCtx.destination);
+  note.start(0,0,0.05);
+  note.stop(0.05);
 
     $(".counter .dot").attr("style", "");
 
@@ -114,10 +135,6 @@ $(".ts-top, .ts-bottom").on("change", function() {
 
 /* Play and stop button */
 $(".play-btn").click(function() {
-  if (already_made_context == false) {
-    context = new AudioContext();
-    already_made_context = true;
-  }
 if($(this).data("what") === "pause")
 {
   // ====== Pause ====== //
