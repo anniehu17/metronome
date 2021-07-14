@@ -47,7 +47,7 @@ function getSound() {
   request.send();
 }
 
-/* Play note on a delayed interval of t */
+/* Play note on a delayed interval of t ! */
 function playNote(t) {
   const audioCtx = new AudioContext();
   var note = audioCtx.createBufferSource();
