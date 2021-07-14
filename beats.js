@@ -8,8 +8,6 @@ var curTime = 0.0;
 // Load up dots on pageload
 $("document").ready(function() {
 $(".ts-top").trigger("change");
-context = new AudioContext();
-getSound();
 });
 
 
@@ -30,6 +28,7 @@ noteCount++;
 }
 
 function getSound() {
+  context = new AudioContext();
   var request = new XMLHttpRequest();
   request.open('GET', 'block.wav', true);
   request.responseType = 'arraybuffer';
@@ -135,6 +134,7 @@ $(".ts-top, .ts-bottom").on("change", function() {
 
 /* Play and stop button */
 $(".play-btn").click(function() {
+  getSound();
 if($(this).data("what") === "pause")
 {
   // ====== Pause ====== //
