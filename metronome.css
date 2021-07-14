@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 @import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
 body {
-  background: #f9f8ec;
+  background: #c0c0be;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -10,7 +10,7 @@ input[type=range] {
   max-height: 3px;
   position: relative;
   top: -3px;
-  background: #ddd;
+  background: #ffdf00;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -79,7 +79,7 @@ input[type=checkbox]:checked + label:after {
 
 header {
   height: 65px;
-  background: #879bad;
+  background: #ffdf00;
   color: #2a353e;
   font-size: 36px;
   font-weight: 400;
@@ -173,7 +173,7 @@ header {
   transition: color 0.2s;
 }
 .metronome-container .controls label span i:hover {
-  color: #fa6900;
+  color: #ffdf00;
 }
 .metronome-container .controls input {
   width: 30px;
@@ -188,7 +188,7 @@ header {
 }
 .metronome-container .controls .play-btn {
   width: 45%;
-  background: #d6e26d;
+  background: #ffdf00;
   border: 0px;
   border-radius: 5px;
   padding: 12px;
@@ -196,15 +196,15 @@ header {
   transition: background 0.3s;
 }
 .metronome-container .controls .play-btn:hover {
-  background: #e8efad;
+  background: #959595;
 }
 .metronome-container .controls .tap-btn {
   width: 45%;
-  background: #888;
+  background: #ffdf00;
   border: 0px;
   border-radius: 5px;
   padding: 12px;
-  color: #fbfbfb;
+  color: #000;
   transition: background 0.3s;
 }
 .metronome-container .controls .tap-btn:hover {
