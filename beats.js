@@ -1,12 +1,14 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var context;
-var note_buffer;
+var globalCtx;
+var globalData;
+var globalBuffer;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
-var curTime = 0.0;
+//var curTime = 0.0;
 
 // Load up dots on pageload
 $("document").ready(function() {
+  getData();
 $(".ts-top").trigger("change");
 });
 
@@ -15,20 +17,29 @@ $(".ts-top").trigger("change");
 Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
 */
 function schedule() {
-while(curTime < context.currentTime + 0.1) {
-  playNote(curTime);
+  playSound();
   updateTime();
-}
-timer = window.setTimeout(schedule, 0.1);
+timer = window.setTimeout(schedule, 1000 * 60.0 / parseInt($(".bpm-input").val(), 10));
 }
 
 function updateTime() {
-curTime += 60.0 / parseInt($(".bpm-input").val(), 10);
+//curTime += 60.0 / parseInt($(".bpm-input").val(), 10);
 noteCount++;
 }
 
-function getSound() {
-  context = new AudioContext();
+function playSound() {
+  if (!globalBuffer) {
+    globalCtx = new AudioContext();
+    globalCtx.decodeAudioData(globalData, function(buffer) {
+      globalBuffer = buffer;
+      playNote(globalCtx);
+    }, onerror);
+  } else {
+    playNote(globalCtx);
+  }
+}
+
+function getData() {
   var request = new XMLHttpRequest();
   request.open('GET', 'block.wav', true);
   request.responseType = 'arraybuffer';
@@ -39,25 +50,21 @@ function getSound() {
 
   // Decode asynchronously
   request.onload = function() {
-    context.decodeAudioData(request.response, function(buffer) {
-      note_buffer = buffer;
-    }, onerror);
+    globalData = request.response;
   }
   request.send();
 }
 
 /* Play note on a delayed interval of t ! */
-function playNote(t) {
-  const audioCtx = new AudioContext();
-  var note = audioCtx.createBufferSource();
-  note.buffer = note_buffer;
+function playNote(context) {
+  note = context.createBufferSource();
+  note.buffer = globalBuffer;
 
   if(noteCount == parseInt($(".ts-top").val(), 10) )
     noteCount = 0;
 
-  note.connect(audioCtx.destination);
+  note.connect(context.destination);
   note.start(0,0,0.05);
-  note.stop(0.05);
 
     $(".counter .dot").attr("style", "");
 
@@ -134,7 +141,6 @@ $(".ts-top, .ts-bottom").on("change", function() {
 
 /* Play and stop button */
 $(".play-btn").click(function() {
-  getSound();
 if($(this).data("what") === "pause")
 {
   // ====== Pause ====== //
@@ -151,7 +157,7 @@ if( $("#timer-check").is(":checked") )
    counting = true;
    countDown();
  }
-  curTime = context.currentTime;
+  //curTime = context.currentTime;
   noteCount = parseInt($(".ts-top").val(), 10);
   schedule();
 
