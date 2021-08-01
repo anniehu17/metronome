@@ -4,7 +4,6 @@ var globalData;
 var globalBuffer;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
-//var curTime = 0.0;
 
 // Load up dots on pageload
 $("document").ready(function() {
@@ -18,13 +17,7 @@ Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
 */
 function schedule() {
   playSound();
-  updateTime();
 timer = window.setTimeout(schedule, 1000 * 60.0 / parseInt($(".bpm-input").val(), 10));
-}
-
-function updateTime() {
-//curTime += 60.0 / parseInt($(".bpm-input").val(), 10);
-noteCount++;
 }
 
 function playSound() {
@@ -60,18 +53,19 @@ function playNote(context) {
   note = context.createBufferSource();
   note.buffer = globalBuffer;
 
-  if(noteCount == parseInt($(".ts-top").val(), 10) )
+  if(noteCount >= parseInt($(".ts-top").val(), 10) )
     noteCount = 0;
 
   note.connect(context.destination);
   note.start(0,0,0.05);
 
-    $(".counter .dot").attr("style", "");
+  $(".counter .dot").attr("style", "");
 
-    $(".counter .dot").eq(noteCount).css({
-      transform: "translateY(-10px)",
-      background: "#F75454"
-    });
+  $(".counter .dot").eq(noteCount).css({
+    transform: "translateY(-10px)",
+    background: "#F75454"
+  });
+  noteCount++;
 }
 
 function countDown() {
@@ -157,7 +151,7 @@ if( $("#timer-check").is(":checked") )
    counting = true;
    countDown();
  }
-  //curTime = context.currentTime;
+
   noteCount = parseInt($(".ts-top").val(), 10);
   schedule();
 
