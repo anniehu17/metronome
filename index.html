@@ -17,9 +17,12 @@
 
 <div class="white">
   <a id="test"></a>
-  <h1>Instructions</h1>
+  <button type="button" class="collapsible">Instructions</button>
+  <div class="content">
   <p>**add instructions in here**</p>
-  <h1>Tempo Ranges</h1>
+  </div>
+  <button type="button" class="collapsible">Tempo Ranges</button>
+  <div class="content">
   <p>
     Grave – 20–40 BPM
   </p>
@@ -56,8 +59,20 @@
   <p>
     Prestissimo – 178 BPM and over
   </p>
-  <h1>Practice Tempo Calculator</h1>
-  <p>**add practice calculator, 60 70 and 85 percent of goal tempo**</p>
+  </div>
+  <button type="button" class="collapsible">Practice Tempo Calculator</button>
+  <div class="content">
+    <form>
+      <label for="otemp">Original Tempo:</label>
+      <input type="text" id="otemp" name="otemp" oninput="calcTempos()"><br></br>
+      <label for="60temp">60% of Original Tempo:</label>
+      <input type="text" id="60temp" name="60temp"><br></br>
+      <label for="70temp">70% of Original Tempo:</label>
+      <input type="text" id="70temp" name="70temp"><br></br>
+      <label for="85temp">85% of Original Tempo:</label>
+      <input type="text" id="85temp" name="85temp"><br></br>
+    </form>
+  </div>
 </div>
 
         <div class="options">
