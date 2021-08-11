@@ -1,6 +1,3 @@
-var tempo = 60;
-sessionStorage.setItem("tempo", tempo);
-
 $(document).ready(function () {
   $("#more").click(function () {
     $('html, body').animate({
@@ -32,4 +29,5 @@ function calcTempos() {
   document.getElementById("70temp").value = newtemp;
   newtemp = Math.trunc(otemp * 0.85);
   document.getElementById("85temp").value = newtemp;
+  sessionStorage.setItem("tempo", otemp);
 }

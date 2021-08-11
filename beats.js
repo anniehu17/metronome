@@ -5,7 +5,6 @@ var globalBuffer;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
 var tempo = sessionStorage.getItem("tempo");
-console.log(tempo);
 
 // Load up dots on pageload
 $("document").ready(function() {
