@@ -6,11 +6,18 @@ html, body {
   font-size: 25px;
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a5025fb0f2ec616e95d21921d32326e7e4586162
 html {
   background: url('yuh.png') /*is this actually how u would add this>*/fixed;
   background-size: 100%;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> a5025fb0f2ec616e95d21921d32326e7e4586162
 div {
   overflow: hidden;
 }
