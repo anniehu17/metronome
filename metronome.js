@@ -9,8 +9,20 @@ var tempo = sessionStorage.getItem("tempo");
 // Load up dots on pageload
 $("document").ready(function() {
   getData();
+  setTempos();
 $(".ts-top").trigger("change");
 });
+
+function setTempos() {
+  var temp60 = sessionStorage.getItem("60temp");
+  document.getElementById("60temp").innerHTML = temp60;
+  var temp70 = sessionStorage.getItem("70temp");
+  document.getElementById("70temp").innerHTML = temp70;
+  var temp85 = sessionStorage.getItem("85temp");
+  document.getElementById("85temp").innerHTML = temp85;
+  var otemp = sessionStorage.getItem("tempo");
+  document.getElementById("inputbpm").value = otemp;
+}
 
 
 /*
