@@ -4,7 +4,7 @@ var globalData;
 var globalBuffer;
 var timer, noteCount, counting, accentPitch = 380, offBeatPitch = 200;
 var delta = 0;
-var tempo = sessionStorage.getItem("tempo");
+var tempo = localStorage.getItem("tempo");
 
 // Load up dots on pageload
 $("document").ready(function() {
@@ -14,19 +14,19 @@ $(".ts-top").trigger("change");
 });
 
 function setTempos() {
-  var temp60 = sessionStorage.getItem("60temp");
+  var temp60 = localStorage.getItem("60temp");
   if (temp60) {
     document.getElementById("60temp").innerHTML = temp60;
-    var temp70 = sessionStorage.getItem("70temp");
+    var temp70 = localStorage.getItem("70temp");
     document.getElementById("70temp").innerHTML = temp70;
-    var temp85 = sessionStorage.getItem("85temp");
+    var temp85 = localStorage.getItem("85temp");
     document.getElementById("85temp").innerHTML = temp85;
   } else {
-    document.getElementById("60temp").innerHTML = "No calculations made.";
-    document.getElementById("70temp").innerHTML = "No calculations made.";
+    document.getElementById("60temp").innerHTML = "No calculations made";
+    document.getElementById("70temp").innerHTML = "No calculations made";
     document.getElementById("85temp").innerHTML = "No calculations made.";
   }
-  var otemp = sessionStorage.getItem("tempo");
+  var otemp = localStorage.getItem("tempo");
   if (otemp) {
     document.getElementById("inputbpm").value = otemp;
   } else {

@@ -25,26 +25,26 @@ function calcTempos() {
   // get the original tempo they entered
   var otemp = document.getElementById('otemp').value;
   // save the original tempo
-  sessionStorage.setItem("tempo", otemp);
+  localStorage.setItem("tempo", otemp);
 
   // 60%
   var newtemp = Math.trunc(otemp * 0.6);
   // display 60%
   document.getElementById("60temp").value = newtemp;
   // store 60%
-  sessionStorage.setItem("60temp", newtemp);
+  localStorage.setItem("60temp", newtemp);
 
   // 70%
   var newtemp = Math.trunc(otemp * 0.7);
   // display 70%
   document.getElementById("70temp").value = newtemp;
   // store 70%
-  sessionStorage.setItem("70temp", newtemp);
+  localStorage.setItem("70temp", newtemp);
 
   // 85%
   var newtemp = Math.trunc(otemp * 0.85);
   // display 85%
   document.getElementById("85temp").value = newtemp;
   // store 85%
-  sessionStorage.setItem("85temp", newtemp);
+  localStorage.setItem("85temp", newtemp);
 }
