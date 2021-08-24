@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Signika+Negative:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 
 html, body {
   height:100%;
@@ -9,8 +10,8 @@ html, body {
 html {
   background: url('newest.jpg') fixed;
   
-  height: 100%
-  width:fit-content
+  height: 100%;
+  width:fit-content;
 }
 div {
   overflow: hidden;
@@ -35,7 +36,7 @@ header {
   height: auto;
   position: relative;
   margin: 40px auto;
-  background: #2f2f2f;
+  background: #404040;
 }
 
 a {
@@ -137,7 +138,7 @@ img {
 }
 
 .collapsible {
-  background-color: #777;
+  background-color: #2f2f2f;
   color: white;
   cursor: pointer;
   padding: 18px;
@@ -145,11 +146,12 @@ img {
   border: none;
   text-align: left;
   outline: none;
+  font-family: 'Signika Negative';
   font-size: 15px;
 }
 
 .active, .collapsible:hover {
-  background-color: #555;
+  background-color: #333333;
 }
 
 .collapsible:after {
@@ -169,7 +171,7 @@ img {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+  background-color: #f7c95b;
 }
 
 .button-link {

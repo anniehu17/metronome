@@ -1,12 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Signika+Negative:400,700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 @import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
-body {
+html, body {
   
-  font-family: "Open Sans", sans-serif;
+  font-family: "Signika Negative", sans-serif;
   background: url('newest.jpg') fixed;
   
-  height: 100%
-  width:fit-content
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+}
+
+header {
+  height: 65px;
+  background: #f5bb32;
+  color: #2a353e;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  padding: 5px;
 }
 
 input[type=range] {
@@ -75,20 +89,6 @@ input[type=checkbox]:checked + label:before {
 input[type=checkbox]:checked + label:after {
   transform: skewX(-30deg);
   opacity: 1;
-}
-
-.container {
-  width: 100%;
-}
-
-header {
-  height: 65px;
-  background: #f5bb32;
-  color: #2a353e;
-  font-size: 36px;
-  font-weight: 400;
-  text-align: center;
-  padding: 5px;
 }
 
 .metronome-container {
