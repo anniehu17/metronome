@@ -16,6 +16,28 @@ div {
   overflow: hidden;
 }
 
+.container {
+  width: 100%;
+}
+
+header {
+  height: 65px;
+  background: #f5bb32;
+  color: #2a353e;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  padding: 5px;
+}
+
+.metronome-container {
+  width: 75%;
+  height: auto;
+  position: relative;
+  margin: 40px auto;
+  background: #2f2f2f;
+}
+
 a {
   color: #322bff;
   text-decoration: underline;
