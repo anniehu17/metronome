@@ -30,21 +30,21 @@ function calcTempos() {
   // 60%
   var newtemp = Math.trunc(otemp * 0.6);
   // display 60%
-  document.getElementById("60temp").value = newtemp;
+  document.getElementById("60temp").innerHTML = newtemp;
   // store 60%
   localStorage.setItem("60temp", newtemp);
 
   // 70%
   var newtemp = Math.trunc(otemp * 0.7);
   // display 70%
-  document.getElementById("70temp").value = newtemp;
+  document.getElementById("70temp").innerHTML = newtemp;
   // store 70%
   localStorage.setItem("70temp", newtemp);
 
   // 85%
   var newtemp = Math.trunc(otemp * 0.85);
   // display 85%
-  document.getElementById("85temp").value = newtemp;
+  document.getElementById("85temp").innerHTML = newtemp;
   // store 85%
   localStorage.setItem("85temp", newtemp);
 }
