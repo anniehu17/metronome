@@ -9,6 +9,7 @@ var tempo = localStorage.getItem("tempo");
 // Load up dots on pageload
 $("document").ready(function() {
   getData();
+  setUserBPM();
   setTempos();
 $(".ts-top").trigger("change");
 });
@@ -17,28 +18,31 @@ function setTempos() {
   var otemp = localStorage.getItem("tempo");
   if (otemp) {
     var str = "Original Tempo: ";
-    str += "<span id='otemp'>";
-    str += " 60%: ";
-    str += "<span id='60temp'></span>";
-    str += " 70%: ";
-    str += "<span id='70temp'></span>";
-    str += ", 85%: ";
-    str += "<span id='85temp'></span>";
-    document.getElementById("calc_vals").innerHTML = str;
-    document.getElementById("otemp").innerHTML = otemp;
+    str += otemp;
     document.getElementById("inputbpm").value = otemp;
     var temp60 = localStorage.getItem("60temp");
-    document.getElementById("60temp").innerHTML = temp60;
     var temp70 = localStorage.getItem("70temp");
-    document.getElementById("70temp").innerHTML = temp70;
     var temp85 = localStorage.getItem("85temp");
-    document.getElementById("85temp").innerHTML = temp85;
+    str += ", 60%: ";
+    str += parseInt(temp60);
+    str += ", 70%: ";
+    str += parseInt(temp70);
+    str += ", 85%: ";
+    str += parseInt(temp85);
+    document.getElementById("calc_vals").innerHTML = str;
   } else {
     document.getElementById("inputbpm").value = "60";
-    var user_temp = localStorage.getItem("user_set_bpm");
-    if (user_temp) {
-      document.getElementById("inputbpm").value = user_temp;
-    }
+  }
+}
+
+function userSet() {
+  localStorage.setItem("user_set_bpm", document.getElementById("inputbpm").value);
+}
+
+function setUserBPM() {
+  var user_temp = localStorage.getItem("user_set_bpm");
+  if (user_temp && user_temp >= 0) {
+    document.getElementById("inputbpm").value = user_temp;
   }
 }
 
@@ -48,7 +52,6 @@ Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
 function schedule() {
   playSound();
 timer = window.setTimeout(schedule, 1000 * 60.0 / parseInt($(".bpm-input").val(), 10));
-localStorage.setItem("user_set_bpm", parseInt($(".bpm-input")));
 }
 
 function playSound() {
@@ -176,7 +179,6 @@ if($(this).data("what") === "pause")
 }
 else {
   // ====== Play ====== //
-  
 if( $("#timer-check").is(":checked") )
  {
    counting = true;
