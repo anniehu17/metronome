@@ -16,7 +16,7 @@ $(".ts-top").trigger("change");
 function setTempos() {
   var otemp = localStorage.getItem("tempo");
   if (otemp) {
-    document.getElementById("calc_vals") = "Original Tempo: <span id='otemp'> 60%: <span id='60temp'></span>, 70%: <span id='70temp'></span>, 85%: <span id='85temp'></span>";
+    document.getElementById("calc_vals".innerHTML) = "Original Tempo: <span id='otemp'> 60%: <span id='60temp'></span>, 70%: <span id='70temp'></span>, 85%: <span id='85temp'></span>";
     document.getElementById("otemp").innerHTML = otemp;
     document.getElementById("inputbpm").value = otemp;
     var temp60 = localStorage.getItem("60temp");
@@ -33,7 +33,6 @@ function setTempos() {
     }
   }
 }
-
 
 /*
 Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
