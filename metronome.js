@@ -80,6 +80,13 @@ function getData() {
     globalData = request.response;
   }
   request.send();
+
+  if (!globalBuffer) {
+    globalCtx = new AudioContext();
+    globalCtx.decodeAudioData(globalData, function(buffer) {
+      globalBuffer = buffer;
+    }, onerror);
+  }
 }
 
 /* Play note on a delayed interval of t ! */
