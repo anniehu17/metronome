@@ -9,12 +9,18 @@ html, body {
 
 html {
   background: url('newest.jpg') fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   
-  height: 100%;
+  height:fit-content;
   width:fit-content;
 }
 div {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .container {
@@ -37,6 +43,8 @@ header {
   position: relative;
   margin: 40px auto;
   background: #404040;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 a {
