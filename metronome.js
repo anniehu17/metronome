@@ -14,23 +14,23 @@ $(".ts-top").trigger("change");
 });
 
 function setTempos() {
-  var temp60 = localStorage.getItem("60temp");
-  if (temp60) {
+  var otemp = localStorage.getItem("tempo");
+  if (otemp) {
+    document.getElementById("calc_vals") = "Original Tempo: <span id='otemp'> 60%: <span id='60temp'></span>, 70%: <span id='70temp'></span>, 85%: <span id='85temp'></span>";
+    document.getElementById("otemp").innerHTML = otemp;
+    document.getElementById("inputbpm").value = otemp;
+    var temp60 = localStorage.getItem("60temp");
     document.getElementById("60temp").innerHTML = temp60;
     var temp70 = localStorage.getItem("70temp");
     document.getElementById("70temp").innerHTML = temp70;
     var temp85 = localStorage.getItem("85temp");
     document.getElementById("85temp").innerHTML = temp85;
   } else {
-    document.getElementById("60temp").innerHTML = "No calculations made";
-    document.getElementById("70temp").innerHTML = "No calculations made";
-    document.getElementById("85temp").innerHTML = "No calculations made.";
-  }
-  var otemp = localStorage.getItem("tempo");
-  if (otemp) {
-    document.getElementById("inputbpm").value = otemp;
-  } else {
     document.getElementById("inputbpm").value = "60";
+    var user_temp = localStorage.getItem("user_set_bpm");
+    if (user_temp) {
+      document.getElementById("inputbpm").value = user_temp;
+    }
   }
 }
 
@@ -41,6 +41,7 @@ Scheduling Help by: https://www.html5rocks.com/en/tutorials/audio/scheduling/
 function schedule() {
   playSound();
 timer = window.setTimeout(schedule, 1000 * 60.0 / parseInt($(".bpm-input").val(), 10));
+localStorage.setItem("user_set_bpm", parseInt($(".bpm-input")));
 }
 
 function playSound() {
