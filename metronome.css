@@ -12,6 +12,7 @@ html, body {
   background-size: cover;
   width: 100%;
   height: fit-content;
+  overflow-x: hidden;
 }
 
 .container {
